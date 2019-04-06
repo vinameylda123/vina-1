@@ -1,0 +1,181 @@
+(linier searching)
+linier atau sequensiel search adalah sebuah cara mudah untuk menemukan nilai targetbilangan angka dalam sebuah list,dia akan menemukan satu persatu dimana setia elemen dari list
+search = 2
+mylist = [1,2,3,4,5,6]
+position=len(mylist)-1
+last=0
+found=false
+while position>=last and not found:
+if mylist[position]==search:
+found=true
+else:
+position=position-1
+if found
+print("found the search number")
+print(position)
+else
+print("did not find the search number")
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+(binary searching)
+binary search adalah searching tapi posisinya harus terurut.dimana sistem pencariannya sangat mudah di lakukan karena data sudah terurut meskipun datanya sangat banyak.karena yang dicari dari depan,tengah,maupun belakang,jadi sintaks nya agak lebih rumit karena kita akan mengurutkan terlebih dahulu.
+contoh : 3 7 9 15 100
+search : 15,jadi rumus position = awal +akhir / 2
+binary melakukan pengulangan terus sampai
+jika linier search itu > position -1 atau +1,maka binary searchyang update berubah terus itu di nilai midle nya dan nilai awal
+misal search > ,midle awal = mid + 1 =2+1 = 3,akhir = len - 1=5
+misal search < ,midle awal = mid - 1,akhir =
+contoh lain, 3,4,9,10,18,20,25,30,37,42,85
+midle nya 5 = 20
+jadi awal = 0,akhir = mid - 1 = 4,jadi midle nya adalah 2 = 9
+awal = 0,akhir = mid - 1 = 1,mid = 0+1/2 = ...
+yang berubah terus yaitu awal,akhir,dan midle
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+(Hasing)
+Hasing adalah semisal punya item/sebuah data dan saya simpen di tabel indeks dan saya akan mau cari. bagaimana caranya?
+hash key adalah sejumlah data akan masuk ke dalam tabel indeks,hash key nya berapa ya?
+54 kalau kita punya tabel,di bagi 11 karena ada 11 slot
+jika saya punya 11 slot,maka angka2 yang disini akan saya bagi dengan 54 > 54 // 11 = 10
+26 // 11 = 4 maka akan di taruh disana
+yang di cari misalnya.
+bilangan / 11(jumlah tabel) >> sisa atau modulus(%)
+0 - - - - - - - - - 10
+jika misal 77 > 0 dan 44 > 0 akan masuk pada tabel yang sama,itu namanya bermasalah yang dinamakan collusion
+jika di tabel pertama sudah ada angka 77 dan angka 44 mau masuk itu tidak ada,jadi angka 44 akan dibagi nantinya
+hash value = key modulus(n+1)
+misal
+54,26,93,17,77,31,44,55,20 di bagi 11
+10,4,5,6,0,9,0,0,9.
+collusion > open (linier probbing = h+1 +2 +3 ...)(quadratic probbing = h+1 +4 +9 .... berasal dari 1kuadrat,2kuadrat,dst)
+          > close (chaining = 44,33,55, .... )
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+(bubble sort)
+bubble = codingan yang palingan mudah dan simple diantara sorting yang lain,tapi dia paling buruk bandingannya
+bubble akan membandingkan ini dengan itu,sampai seterusnya yang diakhiri,sampai selesai
+dia akan mengurutkan angka satusatu dari depan sampai belakang yang itu dinamakan,1 iterasi
+jika urutan angka belum terurut,ada yang belum selesai yaitu compire nya,karena algoritma bubble sort kebanyakan pakai for
+for k > 1 to n
+for indeks < 0 to n-1
+{if (A[i] > A[i+1])}
+{
+swap (A[i] > A[i+1])
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+(selesction sort)
+selection= codingannya pembaruan dari bubble short,dia tahapnya muter
+dia akan menukar,tapi nanti
+selection akan memilih angka terkecil/terbesar di antara angka angka tersebut,jika nemu,dia akan langsung menaruhnya didepan.
+dan angka selanjutnya langsung geser menurut angka yang berjajar
+jika sudah,dia akan menyeleksi lagi,dan langsung menaruhnya di urutan nomer dua,dan seterusnya begitu.
+selection sort (A,n)
+{ for i < 0 to n-1
+    {imin < i
+        for j < i+1 to n
+            {
+                if (A[i] < A[imin]}
+                imin < j
+            }
+temp < [A[i]
+A[i] < A[imin]
+} A[imin] < temp
+}
+selection akan menukar jika posisi sudah terurut 
+dia akan melakukan sampai akhir,sampai n-1
+5,100,2,1
+5= indeks 0
+5= imin
+1= min
+i = 0,i = 1
+min = 3,min = 1
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+(insertion sort)
+insertion sort = jika melakukan sorting dimana sejumlah garis,maka kita akan menginsertkan ke tempat posisinya sendiri.
+jika mau mengurutkan,maka mulai dari deretan ke dua dan di bandingkan dengan angka sebelumnya,sampai posisi dia indeks ke yang paling awal
+for i < 1 to n
+{
+    value < A[i]
+    hole < i
+    while (hole > 0 4 % A[hole -1] > value)
+    {
+        A[hole] < A[hole-1]
+        hole < hole-1
+    }
+    A[hole] < value
+}
+semisal
+5 2 4 6 1 3
+2= indeks pertama,juga sebagai value dan hole
+dari 2 ---- 3 = indeks 1 sampai 5
+nanti value = 2,hole = 1
+disini ga ada swipe,adanya replace
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+(quick sort)
+quick sort = kita akan memilih salah satu ada deretab angka,tapi harus continue, misal yang di pilih didepan ya didepanterus kalau bealakang ya belakang terus,ada yang disebut pivot itu yang dinamakan pembagi angka itu
+misal ada list 5 2 6 1 3 dan kita akan memilih angka 3, 3 itu yang dinamakan pivot,maka
+_______ <3< _______
+misal 
+def Partition (A,start,end):
+    pivot = A[end]
+    pIdex = start
+    for i in range (start,end):
+        if (A[i] <= A[pIdex],A[i]
+        pIndex = pIndex+1
+    A[pIndex],A[end] = A[end], A[pIndex]
+return pIndex
+note::
+def QuickSort (A,start,end):
+    if start<end:
+    pIndex = Partition (A,start,end)
+    QuickSort(A,start,Pindex - 1)
+    QuickSort(A,pIndex + 1,end)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+sorting3
+(merged sort)
+merged sort adlah kita akan membagi data menjadi divide,dibagi sampe menjadi hal yang paling terkecil
+mergedsort(A)
+{ n< length(A)
+    if (n<2) return
+    mid < n/2
+    left < array of size(mid)
+    right < array of size (n-mid)
+    .
+    mergesort(left)
+    mergesort(right)
+i<0
+j<0
+k<0
+}
+while(i < nL && j <nR)
+{
+    if ( L[i] <= R[j])
+    {
+        A[n] < L[i]; i < i+1
+    }
+    else
+    {
+        A[n] < R[j]; j < j+1
+    }
+    k < k + 1
+}
+while (i < nL)
+{
+A[n] < L[i]; i < i+1; k k+ij
+}
+while(j < nR)
+{
+A[k] < R[j]; j < j+1; k < k+ij
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
